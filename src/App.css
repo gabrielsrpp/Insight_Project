@@ -458,3 +458,347 @@
     max-width: 100%;
   }
 }
+/* Adicione estes estilos ao final do seu arquivo App.css existente */
+
+/* Estilos para a página de configurações */
+.settings-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.settings-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 2px 10px rgba(76, 81, 191, 0.06);
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.settings-icon {
+  font-size: 1.5rem;
+  color: #4c51bf;
+}
+
+.settings-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.settings-form-group {
+  margin-bottom: 18px;
+}
+
+.settings-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.settings-form-group small {
+  display: block;
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.settings-input, .settings-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.settings-input:focus, .settings-select:focus {
+  outline: none;
+  border-color: #4c51bf;
+  box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.1);
+}
+
+.settings-range {
+  width: 80%;
+  margin-right: 10px;
+}
+
+.range-with-value {
+  display: flex;
+  align-items: center;
+}
+
+.range-value {
+  background: #e0e7ff;
+  color: #4c51bf;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  min-width: 50px;
+  text-align: center;
+}
+
+.radio-group, .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-item, .checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e5e7eb;
+  border-radius: 24px;
+  transition: .4s;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .toggle-slider {
+  background-color: #4c51bf;
+}
+
+input:focus + .toggle-slider {
+  box-shadow: 0 0 1px #4c51bf;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.settings-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.settings-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.settings-icon {
+  font-size: 1.5rem;
+  color: #4c51bf;
+}
+
+.settings-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.settings-form-group {
+  margin-bottom: 22px;
+}
+
+.settings-form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.settings-form-group small {
+  display: block;
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+.settings-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #374151;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.settings-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.settings-range {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.settings-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #3b82f6;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range-with-value {
+  display: flex;
+  align-items: center;
+}
+
+.range-value {
+  background: #e0e7ff;
+  color: #4c51bf;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  min-width: 55px;
+  text-align: center;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.radio-item input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4c51bf;
+}
+
+.settings-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.settings-btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.1s;
+  border: none;
+}
+
+.settings-btn.primary {
+  background: #4c51bf;
+  color: white;
+  box-shadow: 0 2px 5px rgba(76, 81, 191, 0.2);
+}
+
+.settings-btn.primary:hover {
+  background: #3c40b1;
+}
+
+.settings-btn.secondary {
+  background: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
+
+.settings-btn.secondary:hover {
+  background: #e5e7eb;
+}
+
+.settings-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .settings-container {
+    grid-template-columns: 1fr;
+  }
+}
