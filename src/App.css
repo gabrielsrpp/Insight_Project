@@ -145,7 +145,7 @@
   margin-top: 28px;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch; /* <-- Alinha altura igual */
+  align-items: stretch;
 }
 
 .upload-card,
@@ -153,14 +153,14 @@
   background: #f8fafc;
   border-radius: 13px;
   box-shadow: 0 2px 12px rgba(76,81,191,0.06);
-  width: 250px;     /* <-- Tamanho fixo para ambos */
+  width: 250px;
   min-width: 220px;
-  max-width: 250px; /* <-- Ambos fixos, ficam iguais */
-  min-height: 190px; /* <-- Altura igual */
+  max-width: 250px;
+  min-height: 190px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centraliza conteúdo vertical */
+  justify-content: center;
   position: relative;
   padding: 18px 12px 14px 12px;
 }
@@ -235,5 +235,226 @@
     min-width: unset;
     max-width: unset;
     min-height: 150px;
+  }
+}
+
+
+.users-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 12px 12px 45px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4c51bf;
+  box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.1);
+}
+
+.add-user-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #4c51bf;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(76, 81, 191, 0.2);
+  transition: background 0.2s;
+}
+
+.add-user-btn:hover {
+  background: #3c40b1;
+}
+
+.users-table-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.users-table th {
+  padding: 16px 20px;
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.users-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  font-size: 1rem;
+}
+
+.users-table tr:last-child td {
+  border-bottom: none;
+}
+
+.users-table tr:hover {
+  background: #f9fafb;
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-badge.inactive {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.actions-cell {
+
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: none;
+  border: 1px solid #e5e7eb;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6b7280;
+  transition: background 0.2s, color 0.2s;
+  padding: 0;
+}
+
+.action-btn:hover {
+  background: #f3f4f6;
+}
+
+.edit-btn:hover {
+  color: #4c51bf;
+}
+
+.delete-btn:hover {
+  color: #ef4444;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.pagination-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pagination-btn:hover {
+  background: #f3f4f6;
+}
+
+.pagination-btn.active {
+  background: #4c51bf;
+  color: white;
+}
+
+.pagination-ellipsis {
+  color: #6b7280;
+  padding: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .users-table-container {
+    overflow-x: auto;
+  }
+  
+  .users-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-container {
+    max-width: 100%;
   }
 }
