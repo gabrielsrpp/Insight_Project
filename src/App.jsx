@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
-import { FaFingerprint, FaChartBar, FaUserCheck, FaUsers, FaCog, FaRegSmileBeam, FaPercentage, FaSearch, FaEdit, FaTrash, FaUserPlus, FaUser } from 'react-icons/fa';
+import { 
+  FaFingerprint, FaChartBar, FaUserCheck, FaUsers, FaCog, 
+  FaPercentage, FaSearch, FaEdit, FaTrash, FaUserPlus, FaUser,
+  FaDatabase, FaSave
+} from 'react-icons/fa';
 
 
 const menu = [
@@ -10,7 +14,7 @@ const menu = [
   { id: 'settings', label: 'Configurações', icon: <FaCog /> }
 ];
 
-// Dados simulados de usuários para ter uma base
+// Dados simulados de usuários
 const mockUsers = [
   { id: 1, name: "exemplo", email: "exemplo@exemplo.com", status: "Ativo", image: "" },
 ];
@@ -18,6 +22,12 @@ const mockUsers = [
 export default function App() {
   const [active, setActive] = useState('dashboard');
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // Estados para as configurações
+  const [threshold, setThreshold] = useState(0.6);
+  const [operationMode, setOperationMode] = useState('accurate');
+  const [storageOption, setStorageOption] = useState('local');
+  const [maxUsers, setMaxUsers] = useState(1000);
 
   return (
     <div className="app-container">
@@ -139,10 +149,10 @@ export default function App() {
                         </td>
                         <td className="actions-cell">
                           <button className="action-btn edit-btn" title="Editar">
-                            <FaEdit />
+                            <FaEdit size={16} />
                           </button>
                           <button className="action-btn delete-btn" title="Excluir">
-                            <FaTrash />
+                            <FaTrash size={16} />
                           </button>
                         </td>
                       </tr>
@@ -159,7 +169,103 @@ export default function App() {
           {active === 'settings' && (
             <section>
               <h2>Configurações</h2>
-              <p>Ajustes de parâmetros, integrações, etc.</p>
+              
+              <div className="settings-container">
+                {/* Motor de Reconhecimento */}
+                <div className="settings-card">
+                  <div className="settings-header">
+                    <FaFingerprint className="settings-icon" />
+                    <h3>Motor de Reconhecimento</h3>
+                  </div>
+                  
+                  <div className="settings-form-group">
+                    <label htmlFor="threshold">Limiar de Reconhecimento:</label>
+                    <div className="range-with-value">
+                      <input 
+                        type="range" 
+                        id="threshold" 
+                        min="0.1" 
+                        max="0.9" 
+                        step="0.05"
+                        value={threshold}
+                        onChange={(e) => setThreshold(parseFloat(e.target.value))}
+                        className="settings-range"
+                      />
+                      <div className="range-value">{threshold.toFixed(2)}</div>
+                    </div>
+                    <small>Valores mais baixos são mais sensíveis (mais correspondências).</small>
+                  </div>
+                  
+                  <div className="settings-form-group">
+                    <label>Modo de Operação:</label>
+                    <select 
+                      className="settings-select"
+                      value={operationMode}
+                      onChange={(e) => setOperationMode(e.target.value)}
+                    >
+                      <option value="accurate">Precisão (mais lento)</option>
+                      <option value="balanced">Balanceado</option>
+                      <option value="fast">Rápido (menor precisão)</option>
+                    </select>
+                  </div>
+                </div>
+                
+                {/* Armazenamento */}
+                <div className="settings-card">
+                  <div className="settings-header">
+                    <FaDatabase className="settings-icon" />
+                    <h3>Armazenamento de Dados</h3>
+                  </div>
+                  
+                  <div className="settings-form-group">
+                    <label>Local de Armazenamento:</label>
+                    <div className="radio-group">
+                      <div className="radio-item">
+                        <input 
+                          type="radio" 
+                          id="storage-local" 
+                          name="storage" 
+                          value="local"
+                          checked={storageOption === 'local'}
+                          onChange={() => setStorageOption('local')}
+                        />
+                        <label htmlFor="storage-local">Banco de dados local</label>
+                      </div>
+                      <div className="radio-item">
+                        <input 
+                          type="radio" 
+                          id="storage-cloud" 
+                          name="storage" 
+                          value="cloud"
+                          checked={storageOption === 'cloud'}
+                          onChange={() => setStorageOption('cloud')}
+                        />
+                        <label htmlFor="storage-cloud">Nuvem</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="settings-form-group">
+                    <label htmlFor="max-users">Limite de Usuários:</label>
+                    <input 
+                      type="number" 
+                      id="max-users" 
+                      className="settings-input" 
+                      value={maxUsers}
+                      onChange={(e) => setMaxUsers(parseInt(e.target.value) || 0)}
+                    />
+                  </div>
+                </div>
+                
+                <div className="settings-actions">
+                  <button className="settings-btn primary">
+                    <FaSave /> Salvar Configurações
+                  </button>
+                  <button className="settings-btn secondary">
+                    Restaurar Padrões
+                  </button>
+                </div>
+              </div>
             </section>
           )}
         </div>
