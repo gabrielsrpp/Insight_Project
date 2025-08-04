@@ -5,7 +5,7 @@ import {
   FaPercentage, FaSearch, FaEdit, FaTrash, FaUserPlus, FaUser,
   FaDatabase, FaSave
 } from 'react-icons/fa';
-
+import FaceRecognition from './components/FaceRecognition';
 
 const menu = [
   { id: 'dashboard', label: 'Dashboard', icon: <FaChartBar /> },
@@ -77,24 +77,7 @@ export default function App() {
           {active === 'recognition' && (
             <section>
               <h2>Reconhecimento Facial</h2>
-              <div className="recognition-container">
-                {/* Card de upload */}
-                <div className="upload-card">
-                  <input type="file" accept="image/*" id="face-upload" className="upload-input" />
-                  <label htmlFor="face-upload" className="upload-label">
-                    <span role="img" aria-label="camera" style={{ fontSize: "2.2rem" }}>📷</span>
-                    <span>Escolher imagem</span>
-                  </label>
-                  <button className="recognition-btn" disabled>
-                    Reconhecer (simulado)
-                  </button>
-                </div>
-                {/* Resultado simulado */}
-                <div className="recognition-result">
-                  <span className="result-title">Resultado:</span>
-                  <span className="result-value">Nenhum reconhecimento feito.</span>
-                </div>
-              </div>
+              <FaceRecognition />
             </section>
           )}
           {active === 'users' && (
